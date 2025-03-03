@@ -31,5 +31,21 @@ class Cell:
             line = Line(Point(x1, y2), Point(x2, y2))
             self._win.draw_line(line)
 
+    def draw_move(self, to_cell, undo=False):
 
+        half_x = (self._x1 + self._x2) // 2
+        half_y = (self._y1 + self._y2) // 2
+
+        cell_half_x = (to_cell._x1 + to_cell._x2) // 2
+        cell_half_y = (to_cell._y1 + to_cell._y2) // 2
+
+        line = Line(
+            Point(half_x, half_y),
+            Point(cell_half_x, cell_half_y)
+            )
+
+        if undo == False:
+            self._win.draw_line(line, fill_color="red")
+        else:
+            self._win.draw_line(line, fill_color="gray")
 
