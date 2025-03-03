@@ -1,19 +1,21 @@
 from graphics import Window, Line, Point
+from cell import Cell
 
 
 def main():
     #Create a window
     win = Window(1200, 1000)
 
-    #Define points
-    p1 = Point(10,10)
-    p2 = Point(300,300)
+    cell1 = Cell(win)
+    cell1.has_right_wall = False
+    cell1.draw(50, 50, 100, 100)
 
-    #Create a line between points
-    line = Line(p1, p2)
-    #Draw line in canvas
-    win.draw_line(line, "black")
-    #Start app loop
+    cell2 = Cell(win)
+    cell2.has_left_wall = False
+    cell2.draw(350, 50, 400 ,100)
+
+
+    #Start window loop
     win.wait_for_close()
 
 
